@@ -11,7 +11,7 @@ class WriteReportArgsSchema(BaseModel):
 
 #using structuredTool so that the tool can receive multiple arguments
 write_report_tool = StructuredTool.from_function(
-    name="Write report",
+    name="write_report",
     description="Write an HTML file to disk. Use this tool whenever whenever user asks for a report",
     func=write_report,
     args_schema=WriteReportArgsSchema

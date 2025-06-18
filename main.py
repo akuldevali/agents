@@ -37,4 +37,5 @@ agent_executor = AgentExecutor(
     tools=tools
 )
 
-agent_executor("Summarize thew top 5 popular products. Write the results to a report file")
+agent_executor("Who are the top 5 users with most orders. Write the results to a report file.")
+# agent_executor("How many users have provided a shipping address?")
