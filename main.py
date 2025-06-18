@@ -3,11 +3,12 @@ from langchain.prompts import ( ChatPromptTemplate,HumanMessagePromptTemplate, M
 from langchain.agents import OpenAIFunctionsAgent, AgentExecutor
 from dotenv import load_dotenv
 from tools.sql import run_query_tool, list_tables, describe_tables_tool
+from tools.report import write_report_tool
 from langchain.schema import SystemMessage
 
 load_dotenv()
 chat= ChatOpenAI()
-tools = [run_query_tool, describe_tables_tool]
+tools = [run_query_tool, describe_tables_tool, write_report_tool]
 tables = list_tables()
 # print(tables)
 
@@ -36,4 +37,4 @@ agent_executor = AgentExecutor(
     tools=tools
 )
 
-agent_executor("How many users have provided a shipping address?")
+agent_executor("Summarize thew top 5 popular products. Write the results to a report file")
